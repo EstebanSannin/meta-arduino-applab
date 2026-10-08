@@ -16,6 +16,8 @@ Supported: **Arduino VENTUNO Q** (`ventuno-q`). The UNO Q will follow.
 | `openocd-arduino` | ST's OpenOCD with `linuxgpiod`, at `/opt/openocd` for Arduino's `remoteocd` (MCU flashing over SWD) |
 | `arduino-applab-apt-shim` | `apt`/`dpkg` stand-ins: App Lab's update check sees "nothing to upgrade" |
 | `arduino-user` | `arduino` user, UID 1000 (default user provider) |
+| `arduino-adbd` | adbd over USB with the board's Arduino USB IDs and a serial function, for App Lab's first-run setup |
+| `android-tools` 35.0.2, `android-libboringssl` | Backport from meta-openembedded master: App Lab needs adb's shell v2 protocol, which wrynose's adbd 5.1.1 lacks. Patched so the adb shell runs as `ADBD_USER` and adbd does not fall back to unauthenticated TCP |
 | `packagegroup-arduino-applab` | All of the above |
 
 The Arduino binaries are Arduino's release packages (static Go binaries).
@@ -41,8 +43,9 @@ UID 1000; if your distribution already has one, set
 | `ARDUINO_USER` | `arduino` | User running the daemon |
 | `ARDUINO_PASSWORD_EXPIRED` | `1` | `arduino-user`: force a password change at first use |
 | `ARDUINO_APPLAB_USER_PROVIDER` | `arduino-user` | Recipe providing the App Lab user |
+| `ARDUINO_APPLAB_USB_FIRST_RUN` | `1` | Install `arduino-adbd` (App Lab's first-run setup over USB) |
 
 ## Status
 
-Tested on Torizon OS 8 (wrynose) on the VENTUNO Q: setup wizard, sketch upload,
+Tested on Torizon OS 8 (wrynose) on the VENTUNO Q: first-run setup over USB, setup wizard, sketch upload,
 Bridge, container apps, NPU apps (Gesture Booth, Edge Impulse object detection).
