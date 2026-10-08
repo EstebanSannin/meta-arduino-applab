@@ -16,13 +16,16 @@ Supported: **Arduino VENTUNO Q** (`ventuno-q`). The UNO Q will follow.
 | `openocd-arduino` | ST's OpenOCD with `linuxgpiod`, at `/opt/openocd` for Arduino's `remoteocd` (MCU flashing over SWD) |
 | `arduino-applab-apt-shim` | `apt`/`dpkg` stand-ins: App Lab's update check sees "nothing to upgrade" |
 | `arduino-user` | `arduino` user, UID 1000 (default user provider) |
+| `arduino-zephyr-core` | The Arduino core (platform, Zephyr toolchain, tools, libraries) as Arduino's archives, installed at first boot without network. Regenerate for a new core with `scripts/arduino-core-seed.py` |
 | `arduino-adbd` | adbd over USB with the board's Arduino USB IDs and a serial function, for App Lab's first-run setup |
 | `android-tools` 35.0.2, `android-libboringssl` | Backport from meta-openembedded master: App Lab needs adb's shell v2 protocol, which wrynose's adbd 5.1.1 lacks. Patched so the adb shell runs as `ADBD_USER` and adbd does not fall back to unauthenticated TCP |
 | `packagegroup-arduino-applab` | All of the above |
 
 The Arduino binaries are Arduino's release packages (static Go binaries).
-The Arduino core (MCU toolchain) is installed at first boot with
-`arduino-app-cli system init --only-arduino-platform`, and updated from App Lab.
+The Arduino core (MCU toolchain) ships in the image and is installed at first
+boot without network (`arduino-zephyr-core`); `arduino-app-cli system init
+--only-arduino-platform` then adds the example libraries when online. App Lab
+updates the core later as usual.
 
 ## Use
 
@@ -43,6 +46,7 @@ UID 1000; if your distribution already has one, set
 | `ARDUINO_USER` | `arduino` | User running the daemon |
 | `ARDUINO_PASSWORD_EXPIRED` | `1` | `arduino-user`: force a password change at first use |
 | `ARDUINO_APPLAB_USER_PROVIDER` | `arduino-user` | Recipe providing the App Lab user |
+| `ARDUINO_APPLAB_CORE_IN_IMAGE` | `1` | Ship the Arduino core in the image instead of downloading it at first boot |
 | `ARDUINO_APPLAB_USB_FIRST_RUN` | `1` | Install `arduino-adbd` (App Lab's first-run setup over USB) |
 
 ## Status

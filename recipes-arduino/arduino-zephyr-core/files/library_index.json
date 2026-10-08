@@ -1,0 +1,397 @@
+{
+ "libraries": [
+  {
+   "name": "ArduinoGraphics",
+   "version": "1.1.4",
+   "author": "Arduino",
+   "maintainer": "Arduino <info@arduino.cc>",
+   "sentence": "Core graphics library for Arduino.",
+   "paragraph": "Based on the Processing API.",
+   "website": "http://github.com/arduino-libraries/ArduinoGraphics",
+   "category": "Display",
+   "architectures": [
+    "samd",
+    "renesas_uno"
+   ],
+   "types": [
+    "Arduino"
+   ],
+   "repository": "https://github.com/arduino-libraries/ArduinoGraphics.git",
+   "providesIncludes": [
+    "ArduinoGraphics.h"
+   ],
+   "url": "https://downloads.arduino.cc/libraries/github.com/arduino-libraries/ArduinoGraphics-1.1.4.zip",
+   "archiveFileName": "ArduinoGraphics-1.1.4.zip",
+   "size": 55898,
+   "checksum": "SHA-256:9c9ddc6a31fbf42824bbbb174638d994839f965883ef1ebe88184c17c74092b4"
+  },
+  {
+   "name": "Arduino_LPS22HB",
+   "version": "1.0.2",
+   "author": "Arduino",
+   "maintainer": "Arduino <info@arduino.cc>",
+   "sentence": "Allows you to read the pressure sensor of your Nano 33 BLE Sense.",
+   "website": "http://github.com/arduino-libraries/Arduino_LPS22HB",
+   "category": "Sensors",
+   "architectures": [
+    "*"
+   ],
+   "types": [
+    "Arduino"
+   ],
+   "repository": "https://github.com/arduino-libraries/Arduino_LPS22HB.git",
+   "providesIncludes": [
+    "Arduino_LPS22HB.h"
+   ],
+   "url": "https://downloads.arduino.cc/libraries/github.com/arduino-libraries/Arduino_LPS22HB-1.0.2.zip",
+   "archiveFileName": "Arduino_LPS22HB-1.0.2.zip",
+   "size": 18052,
+   "checksum": "SHA-256:753f49e460b2f4bb5407fc5193095bf978229ffa377bda60c0571d24a5975db8"
+  },
+  {
+   "name": "MsgPack",
+   "version": "0.4.2",
+   "author": "hideakitai",
+   "maintainer": "hideakitai",
+   "sentence": "MessagePack implementation for Arduino (compatible with other C++ apps)",
+   "paragraph": "MessagePack implementation for Arduino (compatible with other C++ apps)",
+   "website": "https://github.com/hideakitai/MsgPack",
+   "category": "Communication",
+   "architectures": [
+    "*"
+   ],
+   "types": [
+    "Contributed"
+   ],
+   "repository": "https://github.com/hideakitai/MsgPack.git",
+   "dependencies": [
+    {
+     "name": "ArxContainer",
+     "version": ">=0.6.0"
+    },
+    {
+     "name": "ArxTypeTraits"
+    },
+    {
+     "name": "DebugLog",
+     "version": ">=0.8.1"
+    }
+   ],
+   "url": "https://downloads.arduino.cc/libraries/github.com/hideakitai/MsgPack-0.4.2.zip",
+   "archiveFileName": "MsgPack-0.4.2.zip",
+   "size": 329227,
+   "checksum": "SHA-256:1195c3e243db14841356073b791771be40d1e986a8ae97c67ed8886cc0599023"
+  },
+  {
+   "name": "ArxContainer",
+   "version": "0.7.0",
+   "author": "hideakitai",
+   "maintainer": "hideakitai",
+   "sentence": "C++ container-like classes (vector, map, etc.) for Arduino which cannot use STL",
+   "paragraph": "C++ container-like classes (vector, map, etc.) for Arduino which cannot use STL",
+   "website": "https://github.com/hideakitai/ArxContainer",
+   "category": "Data Storage",
+   "architectures": [
+    "*"
+   ],
+   "types": [
+    "Contributed"
+   ],
+   "repository": "https://github.com/hideakitai/ArxContainer.git",
+   "url": "https://downloads.arduino.cc/libraries/github.com/hideakitai/ArxContainer-0.7.0.zip",
+   "archiveFileName": "ArxContainer-0.7.0.zip",
+   "size": 16045,
+   "checksum": "SHA-256:d0dea8dd2af43fb7edd88b136f025958cae6bbb7b878e02d8f2f02603d93d6b9"
+  },
+  {
+   "name": "ArxTypeTraits",
+   "version": "0.3.2",
+   "author": "hideakitai",
+   "maintainer": "hideakitai",
+   "sentence": "C++ type_traits for Arduino which cannot use it as default",
+   "paragraph": "C++ type_traits for Arduino which cannot use it as default",
+   "website": "https://github.com/hideakitai/ArxTypeTraits",
+   "category": "Data Storage",
+   "architectures": [
+    "*"
+   ],
+   "types": [
+    "Contributed"
+   ],
+   "repository": "https://github.com/hideakitai/ArxTypeTraits.git",
+   "url": "https://downloads.arduino.cc/libraries/github.com/hideakitai/ArxTypeTraits-0.3.2.zip",
+   "archiveFileName": "ArxTypeTraits-0.3.2.zip",
+   "size": 19262,
+   "checksum": "SHA-256:778a8cf6f279d9e86cbe45dcadacfda6c5b2938e886de7dcf727ba0361696d47"
+  },
+  {
+   "name": "DebugLog",
+   "version": "0.8.4",
+   "author": "hideakitai",
+   "maintainer": "hideakitai",
+   "sentence": "Logging library for Arduino that can output to both Serial and File with one line",
+   "paragraph": "DebugLog can output level-controlled logs to both Serial and File with one line at the same time. It also supports variadic arguments, log level control, assertion, manual file flushing, etc.",
+   "website": "https://github.com/hideakitai/DebugLog",
+   "category": "Communication",
+   "architectures": [
+    "*"
+   ],
+   "types": [
+    "Contributed"
+   ],
+   "repository": "https://github.com/hideakitai/Debug.git",
+   "dependencies": [
+    {
+     "name": "ArxContainer",
+     "version": ">=0.6.0"
+    },
+    {
+     "name": "ArxTypeTraits"
+    }
+   ],
+   "url": "https://downloads.arduino.cc/libraries/github.com/hideakitai/DebugLog-0.8.4.zip",
+   "archiveFileName": "DebugLog-0.8.4.zip",
+   "size": 24033,
+   "checksum": "SHA-256:667d10ef3ac2a6cef381880983549239c18886e7c126abbd6cb299ad83ebbd18"
+  },
+  {
+   "name": "Arduino_LSM6DSOX",
+   "version": "1.1.2",
+   "author": "Arduino",
+   "maintainer": "Arduino <info@arduino.cc>",
+   "sentence": "Allows you to read the accelerometer and gyroscope values from the LSM6DSOX IMU on your Arduino Nano RP2040 Connect.",
+   "website": "https://github.com/arduino-libraries/Arduino_LSM6DSOX",
+   "category": "Sensors",
+   "architectures": [
+    "*"
+   ],
+   "types": [
+    "Arduino"
+   ],
+   "repository": "https://github.com/arduino-libraries/Arduino_LSM6DSOX.git",
+   "providesIncludes": [
+    "Arduino_LSM6DSOX.h"
+   ],
+   "url": "https://downloads.arduino.cc/libraries/github.com/arduino-libraries/Arduino_LSM6DSOX-1.1.2.zip",
+   "archiveFileName": "Arduino_LSM6DSOX-1.1.2.zip",
+   "size": 20383,
+   "checksum": "SHA-256:9510bdb4e98f699c2acd7431e15993e80e796e7613f4d419303e525525f2c9b7"
+  },
+  {
+   "name": "STM32duino VL53L4CD",
+   "version": "1.0.5",
+   "author": "SRA",
+   "maintainer": "stm32duino",
+   "sentence": "Allows controlling the VL53L4CD (Time-of-Flight)",
+   "paragraph": "This library provides simple range measure in mm.",
+   "website": "https://github.com/stm32duino/VL53L4CD",
+   "category": "Device Control",
+   "architectures": [
+    "*"
+   ],
+   "types": [
+    "Contributed"
+   ],
+   "repository": "https://github.com/stm32duino/VL53L4CD.git",
+   "url": "https://downloads.arduino.cc/libraries/github.com/stm32duino/STM32duino_VL53L4CD-1.0.5.zip",
+   "archiveFileName": "STM32duino_VL53L4CD-1.0.5.zip",
+   "size": 25517,
+   "checksum": "SHA-256:7ed8b0887be81e9d14f5cfac42ea31914c26a3dbaa3328c1de683944697d04e2"
+  },
+  {
+   "name": "Arduino_HS300x",
+   "version": "1.0.0",
+   "author": "Arduino",
+   "maintainer": "Arduino <info@arduino.cc>",
+   "sentence": "Allows you to read the temperature and humidity sensors of your Nano 33 BLE Sense R2.",
+   "website": "http://github.com/arduino-libraries/Arduino_HS300x",
+   "category": "Sensors",
+   "architectures": [
+    "*"
+   ],
+   "types": [
+    "Arduino"
+   ],
+   "repository": "https://github.com/arduino-libraries/Arduino_HS300x.git",
+   "providesIncludes": [
+    "Arduino_HS300x.h"
+   ],
+   "url": "https://downloads.arduino.cc/libraries/github.com/arduino-libraries/Arduino_HS300x-1.0.0.zip",
+   "archiveFileName": "Arduino_HS300x-1.0.0.zip",
+   "size": 7232,
+   "checksum": "SHA-256:2c082a8e9e0917f3c389fa235b2b44c2e13c0e14e349d14f675b89d0f1a4c8dd"
+  },
+  {
+   "name": "STM32duino VL53L4ED",
+   "version": "1.0.1",
+   "author": "SRA",
+   "maintainer": "stm32duino",
+   "sentence": "Allows controlling the VL53L4ED (Time-of-Flight)",
+   "paragraph": "This library provides simple range measure in mm.",
+   "website": "https://github.com/stm32duino/VL53L4ED",
+   "category": "Device Control",
+   "architectures": [
+    "*"
+   ],
+   "types": [
+    "Contributed"
+   ],
+   "repository": "https://github.com/stm32duino/VL53L4ED.git",
+   "url": "https://downloads.arduino.cc/libraries/github.com/stm32duino/STM32duino_VL53L4ED-1.0.1.zip",
+   "archiveFileName": "STM32duino_VL53L4ED-1.0.1.zip",
+   "size": 25852,
+   "checksum": "SHA-256:84253c02f823b947799e20cba08f518fc598fdb07a5a0181c85a472a26a97fa1"
+  },
+  {
+   "name": "Arduino_RouterBridge",
+   "version": "0.4.3",
+   "author": "Arduino",
+   "maintainer": "Arduino",
+   "sentence": "A RPC bridge for Arduino UNO Q boards",
+   "paragraph": "This library provides a simple RPC bridge for Arduino UNO Q boards, allowing communication between the board and other devices using MsgPack serialization.",
+   "website": "https://github.com/arduino-libraries/Arduino_RouterBridge",
+   "category": "Communication",
+   "architectures": [
+    "zephyr"
+   ],
+   "types": [
+    "Arduino"
+   ],
+   "repository": "https://github.com/arduino-libraries/Arduino_RouterBridge.git",
+   "dependencies": [
+    {
+     "name": "Arduino_RPClite"
+    }
+   ],
+   "url": "https://downloads.arduino.cc/libraries/github.com/arduino-libraries/Arduino_RouterBridge-0.4.3.zip",
+   "archiveFileName": "Arduino_RouterBridge-0.4.3.zip",
+   "size": 49516,
+   "checksum": "SHA-256:700e12d2d26dbf8365b4a9df5e2dc596b573392ef83e81e41d12db1e2cf5dceb"
+  },
+  {
+   "name": "Arduino_RPClite",
+   "version": "0.3.0",
+   "author": "Arduino, Lucio Rossi (eigen-value)",
+   "maintainer": "Arduino, Lucio Rossi (eigen-value)",
+   "sentence": "A MessagePack RPC library for Arduino",
+   "paragraph": "allows to create a client/server architecture using MessagePack as the serialization format. It follows the MessagePack-RPC protocol specification. It is designed to be lightweight and easy to use, making it suitable for embedded systems and IoT applications.",
+   "website": "https://github.com/arduino-libraries/Arduino_RPCLite",
+   "category": "Communication",
+   "architectures": [
+    "*"
+   ],
+   "types": [
+    "Arduino"
+   ],
+   "repository": "https://github.com/arduino-libraries/Arduino_RPCLite.git",
+   "dependencies": [
+    {
+     "name": "MsgPack",
+     "version": ">=0.4.2"
+    }
+   ],
+   "url": "https://downloads.arduino.cc/libraries/github.com/arduino-libraries/Arduino_RPClite-0.3.0.zip",
+   "archiveFileName": "Arduino_RPClite-0.3.0.zip",
+   "size": 47760,
+   "checksum": "SHA-256:f81477cbe2ad3a454f6196754cd5103aaadb0c7e0d20d91d3209707624c2adb0"
+  },
+  {
+   "name": "Arduino_RPClite",
+   "version": "0.3.1",
+   "author": "Arduino, Lucio Rossi (eigen-value)",
+   "maintainer": "Arduino, Lucio Rossi (eigen-value)",
+   "sentence": "A MessagePack RPC library for Arduino",
+   "paragraph": "allows to create a client/server architecture using MessagePack as the serialization format. It follows the MessagePack-RPC protocol specification. It is designed to be lightweight and easy to use, making it suitable for embedded systems and IoT applications.",
+   "website": "https://github.com/arduino-libraries/Arduino_RPCLite",
+   "category": "Communication",
+   "architectures": [
+    "*"
+   ],
+   "types": [
+    "Arduino"
+   ],
+   "repository": "https://github.com/arduino-libraries/Arduino_RPCLite.git",
+   "dependencies": [
+    {
+     "name": "MsgPack",
+     "version": ">=0.4.2"
+    }
+   ],
+   "url": "https://downloads.arduino.cc/libraries/github.com/arduino-libraries/Arduino_RPClite-0.3.1.zip",
+   "archiveFileName": "Arduino_RPClite-0.3.1.zip",
+   "size": 47752,
+   "checksum": "SHA-256:6887045e52c325fd45a4cea206716458bb789605d3a4b716281fbc0293a78c7f"
+  },
+  {
+   "name": "Arduino_LTR381RGB",
+   "version": "1.0.0",
+   "author": "Arduino",
+   "maintainer": "Arduino <info@arduino.cc>",
+   "sentence": "Library for the Lite-On LTR381RGB color and ambient light sensor.",
+   "paragraph": "This library provides an easy-to-use interface to read RGB, IR, and ambient light values from the Lite-On LTR381RGB sensor. It supports calibration, gain and resolution configuration, lux calculation, and conversion to HSV/HSL color spaces.",
+   "website": "https://github.com/arduino-libraries/Arduino_LTR381RGB",
+   "category": "Sensors",
+   "architectures": [
+    "*"
+   ],
+   "types": [
+    "Arduino"
+   ],
+   "repository": "https://github.com/arduino-libraries/Arduino_LTR381RGB.git",
+   "providesIncludes": [
+    "Arduino_LTR381RGB.h"
+   ],
+   "url": "https://downloads.arduino.cc/libraries/github.com/arduino-libraries/Arduino_LTR381RGB-1.0.0.zip",
+   "archiveFileName": "Arduino_LTR381RGB-1.0.0.zip",
+   "size": 19193,
+   "checksum": "SHA-256:414f5dcbe2def76905f93c2bf5e1650985cde9a18b815a2a63982666c1947b56"
+  },
+  {
+   "name": "Arduino_Modulino",
+   "version": "0.7.0",
+   "author": "Arduino",
+   "maintainer": "Arduino <info@arduino.cc>",
+   "sentence": "Arduino Library for Modulinos",
+   "paragraph": "The Arduino Modulino\u00ae Library simplifies the integration of Modulino\u00ae, compact devices that connect via Qwiic and communicate over I2C. It provides an easy-to-use interface for working with sensors, actuators, and other modules on Arduino boards.",
+   "website": "https://github.com/arduino-libraries/Modulino",
+   "category": "Communication",
+   "architectures": [
+    "*"
+   ],
+   "types": [
+    "Arduino"
+   ],
+   "repository": "https://github.com/arduino-libraries/Arduino_Modulino.git",
+   "providesIncludes": [
+    "Arduino_Modulino.h"
+   ],
+   "dependencies": [
+    {
+     "name": "STM32duino VL53L4CD"
+    },
+    {
+     "name": "STM32duino VL53L4ED"
+    },
+    {
+     "name": "Arduino_LSM6DSOX"
+    },
+    {
+     "name": "Arduino_LPS22HB"
+    },
+    {
+     "name": "Arduino_HS300x"
+    },
+    {
+     "name": "ArduinoGraphics"
+    },
+    {
+     "name": "Arduino_LTR381RGB"
+    }
+   ],
+   "url": "https://downloads.arduino.cc/libraries/github.com/arduino-libraries/Arduino_Modulino-0.7.0.zip",
+   "archiveFileName": "Arduino_Modulino-0.7.0.zip",
+   "size": 1226179,
+   "checksum": "SHA-256:0f8cbddc2210d2cfd596c471bb56c887b4e46ce8b7970bf6f3b7aa3bffbf176e"
+  }
+ ]
+}

@@ -1,6 +1,6 @@
 [Unit]
 Description=Arduino App CLI: install the Arduino core and example libraries
-After=network-online.target arduino-app-cli.service
+After=network-online.target arduino-app-cli.service arduino-zephyr-core-seed.service
 Wants=network-online.target
 ConditionPathExists=!/var/lib/arduino-app-cli/.platform-initialized
 

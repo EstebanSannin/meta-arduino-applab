@@ -1,0 +1,15 @@
+[Unit]
+Description=Arduino App Lab: install the Arduino core shipped in the image
+Before=arduino-app-cli-init.service
+ConditionPathExists=!/var/lib/arduino-app-cli/.core-seeded
+
+[Service]
+Type=oneshot
+User=@ARDUINO_USER@
+ExecStart=@LIBEXECDIR@/arduino-applab/arduino-zephyr-core-seed
+ExecStartPost=+/bin/touch /var/lib/arduino-app-cli/.core-seeded
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

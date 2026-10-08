@@ -1,0 +1,17 @@
+# Libraries the App Lab example apps pin in their sketch profiles, with the
+# platform's library dependencies (installed by arduino-cli at compile time).
+Arduino_RouterBridge@0.4.3
+Arduino_RPClite@0.3.0
+Arduino_RPClite@0.3.1
+MsgPack@0.4.2
+DebugLog@0.8.4
+ArxTypeTraits@0.3.2
+ArxContainer@0.7.0
+Arduino_Modulino@0.7.0
+ArduinoGraphics@1.1.4
+Arduino_HS300x@1.0.0
+Arduino_LPS22HB@1.0.2
+Arduino_LSM6DSOX@1.1.2
+Arduino_LTR381RGB@1.0.0
+STM32duino VL53L4CD@1.0.5
+STM32duino VL53L4ED@1.0.1

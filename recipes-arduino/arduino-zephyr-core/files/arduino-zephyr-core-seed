@@ -1,0 +1,27 @@
+#!/bin/sh
+# Install the Arduino core shipped in the image (archives + trimmed indexes in
+# @SEED@) into the user's arduino-cli data dir, without network. Later updates
+# come from App Lab / arduino-app-cli as usual.
+set -e
+SEED=@SEED@
+DATA="$HOME/.arduino15"
+WORK=$(mktemp -d)
+trap 'rm -rf "$WORK"' EXIT
+
+mkdir -p "$DATA"
+# Only when no index is there yet: a full index downloaded later wins.
+for i in package_index.json library_index.json; do
+    [ -e "$DATA/$i" ] || cp "$SEED/$i" "$DATA/$i"
+done
+cat > "$WORK/cli.yaml" <<EOC
+directories:
+  data: $DATA
+  downloads: $SEED/staging
+  user: $HOME/Arduino
+EOC
+arduino-cli --config-file "$WORK/cli.yaml" core install @CORE@
+
+# Libraries pinned by the example apps' sketch profiles: arduino-cli installs
+# them at compile time and finds them in its download cache instead of the net.
+mkdir -p "$DATA/staging/libraries"
+cp -n "$SEED"/staging/libraries/*.zip "$DATA/staging/libraries/"

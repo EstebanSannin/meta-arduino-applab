@@ -1,0 +1,401 @@
+{
+ "packages": [
+  {
+   "name": "arduino",
+   "maintainer": "Arduino",
+   "websiteURL": "https://www.arduino.cc/",
+   "email": "packages@arduino.cc",
+   "help": {
+    "online": "https://www.arduino.cc/en/Reference/HomePage"
+   },
+   "platforms": [
+    {
+     "libraryDependencies": [
+      {
+       "name": "Arduino_RouterBridge",
+       "version": "0.4.3"
+      },
+      {
+       "name": "Arduino_RPClite",
+       "version": "0.3.0"
+      },
+      {
+       "name": "MsgPack",
+       "version": "0.4.2"
+      },
+      {
+       "name": "DebugLog",
+       "version": "0.8.4"
+      },
+      {
+       "name": "ArxTypeTraits",
+       "version": "0.3.2"
+      },
+      {
+       "name": "ArxContainer",
+       "version": "0.7.0"
+      }
+     ],
+     "name": "Arduino Q Boards",
+     "architecture": "zephyr",
+     "version": "1.0.0",
+     "category": "Arduino",
+     "url": "https://downloads.arduino.cc/cores/zephyr/ArduinoCore-zephyr_unoq-79b3f1af.tar.bz2",
+     "archiveFileName": "ArduinoCore-zephyr_unoq-79b3f1af.tar.bz2",
+     "checksum": "SHA-256:d4510d5772f12d4b11df7d1b41d24f71eb3629fbd3037b127fee5ac41d673a3d",
+     "size": "13982026",
+     "help": {
+      "online": "https://www.arduino.cc/en/Reference/HomePage"
+     },
+     "boards": [
+      {
+       "name": "Arduino UNO Q"
+      },
+      {
+       "name": "Arduino Ventuno Q"
+      }
+     ],
+     "toolsDependencies": [
+      {
+       "packager": "arduino",
+       "name": "adb",
+       "version": "32.0.0"
+      },
+      {
+       "packager": "zephyr",
+       "name": "arm-zephyr-eabi",
+       "version": "1.0.1"
+      },
+      {
+       "packager": "arduino",
+       "name": "bin2uf2",
+       "version": "0.1.0"
+      },
+      {
+       "packager": "arduino",
+       "name": "bossac",
+       "version": "1.9.1-arduino2"
+      },
+      {
+       "packager": "arduino",
+       "name": "dfu-util",
+       "version": "0.11.0-arduino5"
+      },
+      {
+       "packager": "arduino",
+       "name": "gen-rodata-ld",
+       "version": "0.1.1"
+      },
+      {
+       "packager": "SiliconLabs",
+       "name": "openocd",
+       "version": "0.12.0-arduino1-static"
+      },
+      {
+       "packager": "arduino",
+       "name": "remoteocd",
+       "version": "0.1.1"
+      },
+      {
+       "packager": "arduino",
+       "name": "rp2040tools",
+       "version": "1.1.0-rc1"
+      },
+      {
+       "packager": "arduino",
+       "name": "scripting-tools",
+       "version": "0.0.7"
+      },
+      {
+       "packager": "arduino",
+       "name": "sync-zephyr-artifacts",
+       "version": "0.2.2"
+      },
+      {
+       "packager": "arduino",
+       "name": "zephyr-check-size",
+       "version": "0.1.0"
+      },
+      {
+       "packager": "arduino",
+       "name": "zephyr-sketch-tool",
+       "version": "0.4.1"
+      }
+     ]
+    }
+   ],
+   "tools": [
+    {
+     "name": "adb",
+     "version": "32.0.0",
+     "systems": [
+      {
+       "host": "aarch64-linux-gnu",
+       "url": "https://downloads.arduino.cc/tools/android/adb_r32.0.0-linux-aarch64.tar.bz2",
+       "archiveFileName": "adb_r32.0.0-linux-aarch64.tar.bz2",
+       "checksum": "SHA-256:684b27537fbedfce5f4b310e7a0706c7274ef467bf8d227d1512ef6f4a5597fe",
+       "size": "2520745"
+      }
+     ]
+    },
+    {
+     "name": "bin2uf2",
+     "version": "0.1.0",
+     "systems": [
+      {
+       "host": "aarch64-linux-gnu",
+       "url": "https://downloads.arduino.cc/tools/bin2uf2-0.1.0-aarch64-linux-gnu.tar.gz",
+       "archiveFileName": "bin2uf2-0.1.0-aarch64-linux-gnu.tar.gz",
+       "checksum": "SHA-256:6dfedaa4f695f616e0b1422eacd902e7ee3c2339673b617d92ddbf313a6dc096",
+       "size": "1417017"
+      }
+     ]
+    },
+    {
+     "name": "bossac",
+     "version": "1.9.1-arduino2",
+     "systems": [
+      {
+       "host": "aarch64-linux-gnu",
+       "url": "https://downloads.arduino.cc/tools/bossac-1.9.1-arduino2-linuxaarch64.tar.gz",
+       "archiveFileName": "bossac-1.9.1-arduino2-linuxaarch64.tar.gz",
+       "checksum": "SHA-256:c167fa0ea223966f4d21f5592da3888bcbfbae385be6c5c4e41f8abff35f5cb1",
+       "size": "442853"
+      }
+     ]
+    },
+    {
+     "name": "dfu-util",
+     "version": "0.11.0-arduino5",
+     "systems": [
+      {
+       "host": "aarch64-linux-gnu",
+       "url": "https://downloads.arduino.cc/tools/dfu-util-0.11-arduino5-linux_arm64.tar.gz",
+       "archiveFileName": "dfu-util-0.11-arduino5-linux_arm64.tar.gz",
+       "checksum": "SHA-256:b3f46a65da0c2fed2449dc5a3351c3c74953a868aa7f8d99ba2bb8c418344fe9",
+       "size": "2607592"
+      }
+     ]
+    },
+    {
+     "name": "gen-rodata-ld",
+     "version": "0.1.1",
+     "systems": [
+      {
+       "host": "aarch64-linux-gnu",
+       "url": "https://downloads.arduino.cc/tools/gen-rodata-ld-0.1.1-aarch64-linux-gnu.tar.gz",
+       "archiveFileName": "gen-rodata-ld-0.1.1-aarch64-linux-gnu.tar.gz",
+       "checksum": "SHA-256:a058a80fda2158f1a70eec117a2c0d68ed019933dd6c00a18c2067c3607c7828",
+       "size": "1621208"
+      }
+     ]
+    },
+    {
+     "name": "remoteocd",
+     "version": "0.1.1",
+     "systems": [
+      {
+       "host": "aarch64-linux-gnu",
+       "url": "https://downloads.arduino.cc/tools/remoteocd-0.1.1-linux-arm64.tar.gz",
+       "archiveFileName": "remoteocd-0.1.1-linux-arm64.tar.gz",
+       "checksum": "SHA-256:b810cd57831b29e8bb54a9990166956cc53e43fd0359fcc6fbe462b14c13f464",
+       "size": 3508987
+      }
+     ]
+    },
+    {
+     "name": "rp2040tools",
+     "version": "1.1.0-rc1",
+     "systems": [
+      {
+       "host": "aarch64-linux-gnu",
+       "url": "https://downloads.arduino.cc/tools/rp2040tools-1.1.0-rc1-linux_arm64.tar.bz2",
+       "archiveFileName": "rp2040tools-1.1.0-rc1-linux_arm64.tar.bz2",
+       "checksum": "SHA-256:3bd7c1d7a33fe8b3ae5768655d7cc4b228ca89a972422f9dec946ee67ed150c8",
+       "size": "8997691"
+      }
+     ]
+    },
+    {
+     "name": "scripting-tools",
+     "version": "0.0.7",
+     "systems": [
+      {
+       "host": "arm64-linux-gnueabihf",
+       "url": "https://downloads.arduino.cc/scripting-tools/scripting-tools_v0.0.7_Linux_ARM64.tar.gz",
+       "archiveFileName": "scripting-tools_v0.0.7_Linux_ARM64.tar.gz",
+       "checksum": "SHA-256:ba0ec1d1fabdd6cd443762c153ed0be9ea9ae31270c7638353f1f1f501e08294",
+       "size": 1634336
+      }
+     ]
+    },
+    {
+     "name": "sync-zephyr-artifacts",
+     "version": "0.2.2",
+     "systems": [
+      {
+       "host": "aarch64-linux-gnu",
+       "url": "https://downloads.arduino.cc/tools/sync-zephyr-artifacts-0.2.2-aarch64-linux-gnu.tar.gz",
+       "archiveFileName": "sync-zephyr-artifacts-0.2.2-aarch64-linux-gnu.tar.gz",
+       "checksum": "SHA-256:456ce774fb0f5c1c3c17350f38376d58d18ea0e080b7fea8e6f9dd3f6cea560d",
+       "size": "4874232"
+      }
+     ]
+    },
+    {
+     "name": "zephyr-check-size",
+     "version": "0.1.0",
+     "systems": [
+      {
+       "host": "aarch64-linux-gnu",
+       "url": "https://downloads.arduino.cc/tools/zephyr-check-size-0.1.0-aarch64-linux-gnu.tar.gz",
+       "archiveFileName": "zephyr-check-size-0.1.0-aarch64-linux-gnu.tar.gz",
+       "checksum": "SHA-256:efc75eb9470a2eaeb47b364ae1d0402516289aead4c5d2f3a18b42b7a54181c0",
+       "size": "1640444"
+      }
+     ]
+    },
+    {
+     "name": "zephyr-sketch-tool",
+     "version": "0.4.1",
+     "systems": [
+      {
+       "host": "aarch64-linux-gnu",
+       "url": "https://downloads.arduino.cc/tools/zephyr-sketch-tool-0.4.1-aarch64-linux-gnu.tar.gz",
+       "archiveFileName": "zephyr-sketch-tool-0.4.1-aarch64-linux-gnu.tar.gz",
+       "checksum": "SHA-256:f5c56ef6bd4fd4e51e8cf0dff8c1b1cdc283864e6bff0396ac7f9983979a789a",
+       "size": "1501317"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "builtin",
+   "maintainer": "Arduino",
+   "websiteURL": "https://www.arduino.cc/",
+   "email": "packages@arduino.cc",
+   "help": {
+    "online": "https://www.arduino.cc/en/Reference/HomePage"
+   },
+   "platforms": [],
+   "tools": [
+    {
+     "name": "ctags",
+     "version": "5.8-arduino11",
+     "systems": [
+      {
+       "host": "aarch64-linux-gnu",
+       "url": "https://downloads.arduino.cc/tools/ctags-5.8-arduino11-pm-aarch64-linux-gnu.tar.bz2",
+       "archiveFileName": "ctags-5.8-arduino11-pm-aarch64-linux-gnu.tar.bz2",
+       "checksum": "SHA-256:89b6f8adb7b7124ebe2eb30970ea77c754cd2239e0d8a6b0102ae2a36416c6ef",
+       "size": 100819
+      }
+     ]
+    },
+    {
+     "name": "dfu-discovery",
+     "version": "0.1.2",
+     "systems": [
+      {
+       "host": "arm64-linux-gnueabihf",
+       "url": "https://downloads.arduino.cc/discovery/dfu-discovery/dfu-discovery_v0.1.2_Linux_ARM64.tar.gz",
+       "archiveFileName": "dfu-discovery_v0.1.2_Linux_ARM64.tar.gz",
+       "checksum": "SHA-256:4bda54b9031d5b1fb1af70d1c38bf1b1f8cfd0eb0cd81f6c3a43253c31dea92d",
+       "size": 1617881
+      }
+     ]
+    },
+    {
+     "name": "mdns-discovery",
+     "version": "1.1.0",
+     "systems": [
+      {
+       "host": "arm64-linux-gnueabihf",
+       "url": "https://downloads.arduino.cc/discovery/mdns-discovery/mdns-discovery_v1.1.0_Linux_ARM64.tar.gz",
+       "archiveFileName": "mdns-discovery_v1.1.0_Linux_ARM64.tar.gz",
+       "checksum": "SHA-256:19597d8d15aac922813b34064deb870c0e5efc08d7430d15c8501768890f7725",
+       "size": 2990900
+      }
+     ]
+    },
+    {
+     "name": "serial-discovery",
+     "version": "1.5.2",
+     "systems": [
+      {
+       "host": "arm64-linux-gnueabihf",
+       "url": "https://downloads.arduino.cc/discovery/serial-discovery/serial-discovery_v1.5.2_Linux_ARM64.tar.gz",
+       "archiveFileName": "serial-discovery_v1.5.2_Linux_ARM64.tar.gz",
+       "checksum": "SHA-256:489c81d0162e28e9c6602ecbce092e5a4669e7410d95067ed6dd1944e6a3cd34",
+       "size": 1998925
+      }
+     ]
+    },
+    {
+     "name": "serial-monitor",
+     "version": "0.15.0",
+     "systems": [
+      {
+       "host": "arm64-linux-gnueabihf",
+       "url": "https://downloads.arduino.cc/monitor/serial-monitor/serial-monitor_v0.15.0_Linux_ARM64.tar.gz",
+       "archiveFileName": "serial-monitor_v0.15.0_Linux_ARM64.tar.gz",
+       "checksum": "SHA-256:bb16cf208befb19cef8710f753272f9e1ddbc1bd851d57be371f6d4b77af6c5e",
+       "size": 2299956
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "SiliconLabs",
+   "maintainer": "Silicon Labs",
+   "websiteURL": "https://github.com/SiliconLabsSoftware/arduino",
+   "email": "arduino@silabs.com",
+   "help": {
+    "online": "https://github.com/SiliconLabsSoftware/arduino"
+   },
+   "platforms": [],
+   "tools": [
+    {
+     "name": "openocd",
+     "version": "0.12.0-arduino1-static",
+     "systems": [
+      {
+       "host": "aarch64-linux-gnu",
+       "url": "https://downloads.arduino.cc/tools/openocd-0.12.0-arduino1-static-aarch64-linux-gnu.tar.bz2",
+       "archiveFileName": "openocd-0.12.0-arduino1-static-aarch64-linux-gnu.tar.bz2",
+       "checksum": "SHA-256:d6d78fb9f422647a7606213925f037593e5dbd6ad4d6670c3a54ab9ec1cc0cd1",
+       "size": "7156521"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "zephyr",
+   "maintainer": "The Zephyr Project",
+   "websiteURL": "https://zephyrproject.org/",
+   "email": "packages@arduino.cc",
+   "help": {
+    "online": "https://docs.zephyrproject.org/latest/"
+   },
+   "platforms": [],
+   "tools": [
+    {
+     "name": "arm-zephyr-eabi",
+     "version": "1.0.1",
+     "systems": [
+      {
+       "host": "aarch64-linux-gnu",
+       "url": "https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v1.0.1/toolchain_gnu_linux-aarch64_arm-zephyr-eabi.tar.xz",
+       "archiveFileName": "toolchain_gnu_linux-aarch64_arm-zephyr-eabi-1.0.1.tar.xz",
+       "checksum": "SHA-256:b9805b691f2f0a8926c92694cae378d05ba07b76abca745e216fcc52753cc4d6",
+       "size": 97253908
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

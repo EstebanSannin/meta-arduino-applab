@@ -13,6 +13,10 @@ ARDUINO_APPLAB_USER_PROVIDER ?= "arduino-user"
 # 35 (shell v2); set to "0" for network-only setups.
 ARDUINO_APPLAB_USB_FIRST_RUN ?= "1"
 
+# Ship the Arduino core in the image (about 150 MB of archives, installed at
+# first boot without network) instead of downloading it at first boot.
+ARDUINO_APPLAB_CORE_IN_IMAGE ?= "1"
+
 RDEPENDS:${PN} = " \
     arduino-app-cli \
     arduino-applab-apt-shim \
@@ -21,4 +25,5 @@ RDEPENDS:${PN} = " \
     openocd-arduino \
     ${ARDUINO_APPLAB_USER_PROVIDER} \
     ${@'arduino-adbd' if d.getVar('ARDUINO_APPLAB_USB_FIRST_RUN') == '1' else ''} \
+    ${@'arduino-zephyr-core' if d.getVar('ARDUINO_APPLAB_CORE_IN_IMAGE') == '1' else ''} \
 "
