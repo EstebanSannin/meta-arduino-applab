@@ -65,6 +65,7 @@ SRC_URI = "https://deb.debian.org/debian/pool/main/a/android-platform-tools/andr
            file://0013-adb-sysdeps-provide-pread64-pwrite64-lseek64-fallba.patch \
            file://0014-daemon-auth-vendor-a-portable-b64_pton-for-non-glib.patch \
            file://0100-adbd-configurable-user-and-no-tcp-fallback.patch \
+           file://0101-adbd-use-tmp-as-TMPDIR-when-data-local-tmp-is-missing.patch \
            "
 
 SRC_URI[orig.md5sum] = "352376965cdef7bd7505d8fefdd43d50"

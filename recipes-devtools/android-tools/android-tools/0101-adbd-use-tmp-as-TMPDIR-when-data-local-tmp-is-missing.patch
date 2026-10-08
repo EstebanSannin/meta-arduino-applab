@@ -1,0 +1,22 @@
+From: Stefano Viola <stefano.viola@toradex.com>
+Subject: [PATCH] adbd: use /tmp as TMPDIR when /data/local/tmp is missing
+
+adb shells get TMPDIR=/data/local/tmp, which only exists on Android. On a
+Linux distribution tools run through adb (e.g. arduino-app-cli, which App
+Lab drives over adb) fail creating temporary files. Fall back to /tmp.
+
+Upstream-Status: Pending
+Signed-off-by: Stefano Viola <stefano.viola@toradex.com>
+---
+--- a/packages/modules/adb/daemon/shell_service.cpp
++++ b/packages/modules/adb/daemon/shell_service.cpp
+@@ -274,7 +274,8 @@
+         env["HOSTNAME"] = GetHostName();
+         env["LOGNAME"] = pw->pw_name;
+         env["SHELL"] = pw->pw_shell;
+-        env["TMPDIR"] = "/data/local/tmp";
++        // Android's /data/local/tmp does not exist on Linux distributions
++        env["TMPDIR"] = access("/data/local/tmp", F_OK) == 0 ? "/data/local/tmp" : "/tmp";
+         env["USER"] = pw->pw_name;
+     }
+ 
