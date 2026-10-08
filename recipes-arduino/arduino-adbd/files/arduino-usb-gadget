@@ -1,0 +1,39 @@
+#!/bin/sh
+# Arduino identity and serial function for the adbd USB gadget, as on Arduino's
+# images: App Lab finds the board over USB by these IDs (first-run setup).
+# Runs after android-gadget-setup and before android-gadget-start binds the UDC.
+G=/sys/kernel/config/usb_gadget/adb
+
+setup() {
+    [ -d "$G" ] || exit 0
+    echo @ARDUINO_USB_VID@ > "$G/idVendor"
+    echo @ARDUINO_USB_PID@ > "$G/idProduct"
+    echo "Arduino" > "$G/strings/0x409/manufacturer"
+    echo "@ARDUINO_BOARD_NAME@ - $(cat /etc/hostname)" > "$G/strings/0x409/product"
+    [ -r /sys/devices/soc0/serial_number ] && cat /sys/devices/soc0/serial_number > "$G/strings/0x409/serialnumber"
+    echo 120 > "$G/configs/c.1/MaxPower"
+    # Serial port for the Arduino Router monitor (ttyGS0)
+    mkdir -p "$G/functions/acm.GS0"
+    [ -e "$G/configs/c.1/acm.GS0" ] || ln -s "$G/functions/acm.GS0" "$G/configs/c.1/"
+    # adbd drops to $ADBD_USER before opening FunctionFS: hand it the endpoints
+    if grep -qs " /dev/usb-ffs/adb " /proc/mounts; then
+        umount /dev/usb-ffs/adb
+    fi
+    mkdir -p /dev/usb-ffs/adb
+    mount -t functionfs -o uid=$(id -u @ARDUINO_USER@),gid=$(id -g @ARDUINO_USER@) usb0 /dev/usb-ffs/adb
+}
+
+cleanup() {
+    [ -d "$G" ] || exit 0
+    echo -n "" > "$G/UDC" 2>/dev/null || true
+    rm -f "$G/configs/c.1/acm.GS0"
+    rmdir "$G/functions/acm.GS0" 2>/dev/null || true
+    umount /dev/usb-ffs/adb 2>/dev/null || true
+    /usr/bin/android-gadget-cleanup || true
+}
+
+case "$1" in
+    setup) setup ;;
+    cleanup) cleanup ;;
+    *) echo "Usage: $0 setup|cleanup" >&2; exit 1 ;;
+esac
