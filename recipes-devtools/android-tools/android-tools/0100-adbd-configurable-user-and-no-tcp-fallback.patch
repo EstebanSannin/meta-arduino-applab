@@ -1,0 +1,42 @@
+From: Stefano Viola <stefano.viola@toradex.com>
+Subject: [PATCH] adbd: configurable user, no default TCP fallback
+
+Arduino App Lab runs its setup commands (sudo helpers, files in the user's
+home) through adb as the board user, so let ADBD_USER choose the user adbd
+drops privileges to (default: adb, as before). Also only fall back to an
+unauthenticated TCP listener when USB is unavailable if ADBD_TCP_FALLBACK is
+set.
+
+Upstream-Status: Inappropriate [Arduino App Lab integration]
+Signed-off-by: Stefano Viola <stefano.viola@toradex.com>
+---
+--- a/packages/modules/adb/daemon/main.cpp
++++ b/packages/modules/adb/daemon/main.cpp
+@@ -215,9 +215,14 @@
+     if (!should_drop_privileges()) {
+         return;
+     }
+-    passwd* adb_user = getpwnam("adb");
++    // ADBD_USER selects the user adbd drops to (default: adb)
++    const char* adb_user_name = getenv("ADBD_USER");
++    if (adb_user_name == nullptr || adb_user_name[0] == '\0') {
++        adb_user_name = "adb";
++    }
++    passwd* adb_user = getpwnam(adb_user_name);
+     if (adb_user == nullptr) {
+-        PLOG(FATAL) << "getpwnam(adb) failed";
++        PLOG(FATAL) << "getpwnam(" << adb_user_name << ") failed";
+     }
+     int f = unix_open(kAdbRootStatePath, O_WRONLY | O_CREAT | O_CLOEXEC | O_NOFOLLOW, 0600);
+     if (f >= 0) {
+@@ -349,8 +354,8 @@
+             addrs.push_back(android::base::StringPrintf("tcp:%d", port));
+             addrs.push_back(android::base::StringPrintf("vsock:%d", port));
+             setup_adb(addrs);
+-        } else if (!is_usb) {
+-            // Listen on default port.
++        } else if (!is_usb && getenv("ADBD_TCP_FALLBACK")) {
++            // Listen on default port: only when asked to, it has no authentication.
+             addrs.push_back(
+                     android::base::StringPrintf("tcp:%d", DEFAULT_ADB_LOCAL_TRANSPORT_PORT));
+             addrs.push_back(
