@@ -66,6 +66,7 @@ SRC_URI = "https://deb.debian.org/debian/pool/main/a/android-platform-tools/andr
            file://0014-daemon-auth-vendor-a-portable-b64_pton-for-non-glib.patch \
            file://0100-adbd-configurable-user-and-no-tcp-fallback.patch \
            file://0101-adbd-use-tmp-as-TMPDIR-when-data-local-tmp-is-missing.patch \
+           file://0102-adbd-optionally-exit-when-the-USB-connection-closes.patch \
            "
 
 SRC_URI[orig.md5sum] = "352376965cdef7bd7505d8fefdd43d50"

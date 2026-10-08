@@ -1,0 +1,28 @@
+From: Stefano Viola <stefano.viola@toradex.com>
+Subject: [PATCH] adbd: optionally exit when the USB connection closes
+
+On Android, init rebinds the USB gadget when adbd reopens FunctionFS
+(sys.usb.ffs.ready). Elsewhere nothing does, so after a cable replug the
+host sees adbd as offline until a reboot. With ADBD_EXIT_ON_USB_DISCONNECT
+set, exit instead and let the service manager set the gadget up again.
+
+Upstream-Status: Pending
+Signed-off-by: Stefano Viola <stefano.viola@toradex.com>
+---
+--- a/packages/modules/adb/daemon/usb.cpp
++++ b/packages/modules/adb/daemon/usb.cpp
+@@ -343,6 +343,14 @@
+ 
+                         enabled = false;
+                         running = false;
++
++                        // Without Android init nobody rebinds the gadget once FunctionFS is
++                        // reopened (and tearing the connection down can block): exit and let
++                        // the service manager set the gadget up again.
++                        if (getenv("ADBD_EXIT_ON_USB_DISCONNECT")) {
++                            LOG(INFO) << "USB function disabled, exiting";
++                            exit(0);
++                        }
+                         break;
+ 
+                     case FUNCTIONFS_UNBIND:
