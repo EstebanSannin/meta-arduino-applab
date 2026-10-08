@@ -1,0 +1,3 @@
+# MCU flashing (OpenOCD linuxgpiod) and App Lab apps use the GPIO chips as
+# the "gpiod" group, as on Arduino's images.
+SUBSYSTEM=="gpio", KERNEL=="gpiochip*", GROUP="gpiod", MODE="0660"
