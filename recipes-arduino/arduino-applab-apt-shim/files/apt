@@ -1,0 +1,5 @@
+#!/bin/sh
+# apt stand-in for Arduino App Lab: `apt list --upgradable` lists nothing.
+logger -t arduino-apt-shim -- "apt $*"
+echo "Listing... Done" >&2
+exit 0

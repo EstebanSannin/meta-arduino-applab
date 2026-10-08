@@ -1,0 +1,4 @@
+#!/bin/sh
+# dpkg stand-in for Arduino App Lab: nothing to do on this system.
+logger -t arduino-apt-shim -- "dpkg $*"
+exit 0

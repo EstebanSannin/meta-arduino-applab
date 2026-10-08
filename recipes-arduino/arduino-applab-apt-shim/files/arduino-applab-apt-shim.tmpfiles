@@ -1,0 +1,5 @@
+d /usr/local/bin 0755 root root -
+L+ /usr/local/bin/apt - - - - @LIBEXECDIR@/arduino-applab/apt-shim/apt
+L+ /usr/local/bin/apt-get - - - - @LIBEXECDIR@/arduino-applab/apt-shim/apt-get
+L+ /usr/local/bin/dpkg - - - - @LIBEXECDIR@/arduino-applab/apt-shim/dpkg
+L+ /usr/local/bin/needrestart - - - - @LIBEXECDIR@/arduino-applab/apt-shim/needrestart

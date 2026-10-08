@@ -1,0 +1,4 @@
+#!/bin/sh
+# needrestart stand-in for Arduino App Lab: nothing to do on this system.
+logger -t arduino-apt-shim -- "needrestart $*"
+exit 0

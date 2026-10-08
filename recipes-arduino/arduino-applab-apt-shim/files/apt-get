@@ -1,0 +1,20 @@
+#!/bin/sh
+# apt-get stand-in for Arduino App Lab (arduino-app-cli "system update").
+# This system is not updated package by package: answer "nothing to upgrade".
+# A distribution can plug its own updater in through @LIBEXECDIR@/arduino-applab/update-hook.
+logger -t arduino-apt-shim -- "apt-get $*"
+HOOK=@LIBEXECDIR@/arduino-applab/update-hook
+case " $* " in
+    *" non-existent-package-probe "*)
+        # App Lab's dpkg lock probe expects apt's exit 100 (package not found)
+        echo "E: Unable to locate package non-existent-package-probe" >&2
+        exit 100 ;;
+    *" -s upgrade "*|*" --simulate upgrade "*)
+        [ -x "$HOOK" ] && exec "$HOOK" list-apt
+        echo "0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded."
+        exit 0 ;;
+    *" update "*)
+        [ -x "$HOOK" ] && exec "$HOOK" refresh
+        exit 0 ;;
+esac
+exit 0
