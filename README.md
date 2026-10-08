@@ -49,6 +49,23 @@ UID 1000; if your distribution already has one, set
 | `ARDUINO_APPLAB_CORE_IN_IMAGE` | `1` | Ship the Arduino core in the image instead of downloading it at first boot |
 | `ARDUINO_APPLAB_USB_FIRST_RUN` | `1` | Install `arduino-adbd` (App Lab's first-run setup over USB) |
 
+## Known limitations
+
+- **Core updates vs. the rest of the App Lab software.** App Lab updates the
+  Arduino core (`arduino:zephyr`) in the user's home, as on Arduino's images.
+  The daemon (`arduino-app-cli`), the router and OpenOCD, however, come with
+  the OS image, while on Arduino's images they are updated together with the
+  core (apt). A future core that needs a newer daemon or flashes differently
+  would only work after an OS update. If that happens, limit the core versions
+  App Lab offers with `ARDUINO_APP_CLI__PLATFORM_VERSION_CONSTRAINT` (today
+  `<2.0.0-0`, as upstream) until the OS catches up.
+- **First boot.** The core ships in the image but is installed into the home
+  directory (in `/var` on OSTree systems) at first boot: about 100 s before
+  sketches compile. After a reflash the board is back to the shipped core
+  version, and App Lab offers the update again.
+- **Containers.** App images (`python-apps-base`, bricks) are pulled when an
+  app first runs, as on Arduino's images: that needs network.
+
 ## Status
 
 Tested on Torizon OS 8 (wrynose) on the VENTUNO Q: first-run setup over USB, setup wizard, sketch upload,
