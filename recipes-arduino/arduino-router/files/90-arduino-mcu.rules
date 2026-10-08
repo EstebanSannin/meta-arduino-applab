@@ -1,0 +1,4 @@
+# Arduino MCU loader (Zephyr): USB CDC-ACM for the Bridge + gs_usb CAN.
+# arduino-router >= 0.10 talks to the MCU through /dev/ttySTM0.
+SUBSYSTEM=="tty", ATTRS{idVendor}=="1209", ATTRS{idProduct}=="ca01", SYMLINK+="ttySTM0"
+ATTR{idVendor}=="1209", ATTR{idProduct}=="ca01", RUN+="/sbin/modprobe -b gs_usb"
