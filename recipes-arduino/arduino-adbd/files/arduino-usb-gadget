@@ -24,18 +24,30 @@ setup() {
 }
 
 # Bind the gadget as soon as adbd has written its FunctionFS descriptors
-# (android-gadget-start sleeps a fixed 10 s instead).
+# (android-gadget-start sleeps a fixed 10 s instead). The controller may not
+# accept a gadget yet (e.g. USB-C not in device mode until a host is
+# plugged in): keep retrying in the background instead of failing adbd,
+# whose teardown while bound can hang in configfs.
 bind() {
     [ -d "$G" ] || exit 0
-    udc=$(ls /sys/class/udc/ | head -n 1)
+    try_bind() {
+        udc=$(ls /sys/class/udc/ 2>/dev/null | head -n 1)
+        [ -n "$udc" ] && { err=$(echo "$udc" 2>&1 > "$G/UDC") || { echo "bind $udc: ${err:-failed}" >&2; false; }; }
+    }
     i=0
-    while [ $i -lt 100 ]; do
-        echo "$udc" > "$G/UDC" 2>/dev/null && exit 0
+    while [ $i -lt 30 ]; do
+        try_bind && exit 0
         sleep 0.1
         i=$((i + 1))
     done
-    echo "could not bind $udc" >&2
-    exit 1
+    echo "UDC not ready yet, binding in the background" >&2
+    (
+        while [ -d "$G" ] && [ -z "$(cat "$G/UDC" 2>/dev/null)" ]; do
+            try_bind && { echo "gadget bound to $udc" >&2; exit 0; }
+            sleep 1
+        done
+    ) &
+    exit 0
 }
 
 cleanup() {
