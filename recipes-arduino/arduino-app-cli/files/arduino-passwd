@@ -1,0 +1,5 @@
+#!/bin/sh
+# Called by App Lab (sudo) with the new password on stdin.
+IFS= read -r pass
+[ -n "$pass" ] || exit 1
+echo "@ARDUINO_USER@:$pass" | chpasswd

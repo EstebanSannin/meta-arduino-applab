@@ -1,0 +1,14 @@
+[Unit]
+Description=Arduino App Lab: add the board serial number to mDNS
+Before=avahi-daemon.service
+ConditionPathExists=!/var/lib/arduino-app-cli/.avahi-serial-configured
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=@LIBEXECDIR@/arduino-app-cli/arduino-avahi-serial
+ExecStartPost=/bin/mkdir -p /var/lib/arduino-app-cli
+ExecStartPost=/bin/touch /var/lib/arduino-app-cli/.avahi-serial-configured
+
+[Install]
+WantedBy=multi-user.target

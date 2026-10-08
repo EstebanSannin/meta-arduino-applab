@@ -1,0 +1,17 @@
+[Unit]
+Description=Arduino App CLI: install the Arduino core and example libraries
+After=network-online.target arduino-app-cli.service
+Wants=network-online.target
+ConditionPathExists=!/var/lib/arduino-app-cli/.platform-initialized
+
+[Service]
+Type=oneshot
+User=@ARDUINO_USER@
+ExecStart=/usr/bin/arduino-app-cli system init --only-arduino-platform
+ExecStartPost=/bin/touch /var/lib/arduino-app-cli/.platform-initialized
+Restart=on-failure
+RestartSec=60
+TimeoutStartSec=1h
+
+[Install]
+WantedBy=multi-user.target

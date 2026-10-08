@@ -1,0 +1,8 @@
+[Unit]
+Description=Arduino App CLI: prepare data directory
+Before=arduino-app-cli.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=@LIBEXECDIR@/arduino-app-cli/arduino-app-cli-setup

@@ -1,0 +1,4 @@
+#!/bin/sh
+# Called by App Lab (sudo) to set the keyboard layout, through systemd-localed.
+[ -n "$1" ] || { echo "No layout provided"; exit 1; }
+localectl set-x11-keymap "$1" && udevadm trigger --subsystem-match=input --action=change

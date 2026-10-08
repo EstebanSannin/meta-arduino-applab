@@ -1,0 +1,5 @@
+# Commands App Lab runs with sudo (same set as Arduino's images), for UID 1000.
+#1000 ALL=(ALL) NOPASSWD: /usr/local/bin/arduino-passwd
+#1000 ALL=(ALL) NOPASSWD: /usr/local/bin/arduino-set-keyboard-layout
+#1000 ALL=(ALL) NOPASSWD: /usr/bin/hostnamectl set-hostname *
+#1000 ALL=(ALL) NOPASSWD: /usr/bin/systemctl enable ssh, /usr/bin/systemctl start ssh, /usr/bin/systemctl disable ssh, /usr/bin/systemctl stop ssh, /usr/bin/systemctl disable avahi-daemon, /usr/bin/systemctl stop avahi-daemon, /usr/bin/systemctl enable avahi-daemon, /usr/bin/systemctl start avahi-daemon

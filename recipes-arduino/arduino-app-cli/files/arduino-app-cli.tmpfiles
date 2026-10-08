@@ -1,0 +1,4 @@
+# App Lab calls these helpers at fixed paths; /usr/local may live in /var.
+d /usr/local/bin 0755 root root -
+L+ /usr/local/bin/arduino-passwd - - - - @LIBEXECDIR@/arduino-app-cli/arduino-passwd
+L+ /usr/local/bin/arduino-set-keyboard-layout - - - - @LIBEXECDIR@/arduino-app-cli/arduino-set-keyboard-layout

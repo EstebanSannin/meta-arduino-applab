@@ -1,0 +1,14 @@
+# App Lab checks and toggles "ssh"; this distribution uses sshd.socket.
+[Unit]
+Description=OpenSSH (App Lab name for sshd.socket)
+Requires=sshd.socket
+After=sshd.socket
+PropagatesStopTo=sshd.socket
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/true
+
+[Install]
+WantedBy=multi-user.target

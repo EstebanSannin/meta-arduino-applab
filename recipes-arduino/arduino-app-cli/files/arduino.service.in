@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone='no'?>
+<!DOCTYPE service-group SYSTEM "avahi-service.dtd">
+<service-group>
+<name replace-wildcards="yes">%h</name>
+<service>
+<type>_arduino._tcp</type>
+<port>80</port>
+<txt-record>board=@ARDUINO_BOARD@</txt-record>
+<txt-record>vid=@ARDUINO_USB_VID@</txt-record>
+<txt-record>pid=@ARDUINO_USB_PID@</txt-record>
+<txt-record>vid.0=@ARDUINO_USB_VID@</txt-record>
+<txt-record>pid.0=@ARDUINO_USB_PID@</txt-record>
+<txt-record>distro_version=0.1</txt-record>
+<txt-record>ssh_upload=no</txt-record>
+<txt-record>tcp_check=no</txt-record>
+<txt-record>auth_upload=yes</txt-record>
+</service>
+</service-group>
