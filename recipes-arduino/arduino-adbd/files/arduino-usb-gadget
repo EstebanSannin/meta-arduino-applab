@@ -1,7 +1,7 @@
 #!/bin/sh
 # Arduino identity and serial function for the adbd USB gadget, as on Arduino's
 # images: App Lab finds the board over USB by these IDs (first-run setup).
-# Runs after android-gadget-setup and before android-gadget-start binds the UDC.
+# setup runs after android-gadget-setup; bind replaces android-gadget-start.
 G=/sys/kernel/config/usb_gadget/adb
 
 setup() {
@@ -23,6 +23,21 @@ setup() {
     mount -t functionfs -o uid=$(id -u @ARDUINO_USER@),gid=$(id -g @ARDUINO_USER@) usb0 /dev/usb-ffs/adb
 }
 
+# Bind the gadget as soon as adbd has written its FunctionFS descriptors
+# (android-gadget-start sleeps a fixed 10 s instead).
+bind() {
+    [ -d "$G" ] || exit 0
+    udc=$(ls /sys/class/udc/ | head -n 1)
+    i=0
+    while [ $i -lt 100 ]; do
+        echo "$udc" > "$G/UDC" 2>/dev/null && exit 0
+        sleep 0.1
+        i=$((i + 1))
+    done
+    echo "could not bind $udc" >&2
+    exit 1
+}
+
 cleanup() {
     [ -d "$G" ] || exit 0
     echo -n "" > "$G/UDC" 2>/dev/null || true
@@ -34,6 +49,7 @@ cleanup() {
 
 case "$1" in
     setup) setup ;;
+    bind) bind ;;
     cleanup) cleanup ;;
-    *) echo "Usage: $0 setup|cleanup" >&2; exit 1 ;;
+    *) echo "Usage: $0 setup|bind|cleanup" >&2; exit 1 ;;
 esac
