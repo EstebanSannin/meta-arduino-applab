@@ -4,7 +4,7 @@ Run [Arduino App Lab](https://github.com/arduino/arduino-app-lab) apps (Docker
 containers + MCU sketches) on Arduino boards with a Yocto-based distribution,
 with the same experience as Arduino's own images.
 
-Supported: **Arduino VENTUNO Q** (`ventuno-q`). The UNO Q will follow.
+Supported: **Arduino VENTUNO Q** (`ventuno-q`) and **Arduino UNO Q** (`uno-q`).
 
 ## What it adds
 

@@ -26,7 +26,7 @@ ARDUINO_USER ?= "arduino"
 ARDUINO_CORE ?= "arduino:zephyr@${PV}"
 SEED_DIR = "${datadir}/arduino-applab/core-seed"
 
-COMPATIBLE_MACHINE = "ventuno-q"
+COMPATIBLE_MACHINE = "ventuno-q|uno-q"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 inherit systemd

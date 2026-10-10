@@ -35,9 +35,11 @@ ARDUINO_GID ?= "1000"
 # mDNS advertisement App Lab discovers the board with
 ARDUINO_BOARD ?= ""
 ARDUINO_BOARD:ventuno-q ?= "ventunoq"
+ARDUINO_BOARD:uno-q ?= "unoq"
 ARDUINO_USB_VID ?= "0x2341"
 ARDUINO_USB_PID ?= ""
 ARDUINO_USB_PID:ventuno-q ?= "0x007A"
+ARDUINO_USB_PID:uno-q ?= "0x0078"
 
 inherit systemd
 

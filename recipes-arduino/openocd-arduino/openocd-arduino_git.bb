@@ -18,6 +18,7 @@ SRC_URI = " \
 "
 # Board adapter config for remoteocd (SWD over the MPU GPIOs)
 SRC_URI:append:ventuno-q = " file://openocd_gpiod.cfg"
+SRC_URI:append:uno-q = " file://openocd_gpiod.cfg"
 SRCREV_FORMAT = "openocd"
 SRCREV_openocd = "c8d973bdad9a6fddb51459eda109b3b95d23b57a"
 SRCREV_jimtcl = "1933e5457b9512d39ebbe11ed32578aada149f49"
