@@ -27,6 +27,19 @@ boot without network (`arduino-zephyr-core`); `arduino-app-cli system init
 --only-arduino-platform` then adds the example libraries when online. App Lab
 updates the core later as usual.
 
+## Dependencies
+
+| Layer | URI | Branch |
+|---|---|---|
+| openembedded-core (`core`) | https://git.openembedded.org/openembedded-core | wrynose |
+| meta-oe (`openembedded-layer`) | https://git.openembedded.org/meta-openembedded | wrynose |
+| meta-virtualization (`virtualization-layer`) | https://git.yoctoproject.org/meta-virtualization | wrynose |
+
+Board support comes from the board's BSP layer (for the VENTUNO Q,
+[meta-qcom-arduino](https://github.com/qualcomm-linux/meta-qcom-arduino)); this
+layer only adds the App Lab software. It is enabled per machine with
+`MACHINE_FEATURES += "arduino-applab"`.
+
 ## Use
 
 ```
@@ -70,3 +83,31 @@ UID 1000; if your distribution already has one, set
 
 Tested on Torizon OS 8 (wrynose) on the VENTUNO Q: first-run setup over USB, setup wizard, sketch upload,
 Bridge, container apps, NPU apps (Gesture Booth, Edge Impulse object detection).
+
+## Maintainers
+
+- Stefano Viola <stefano.viola@toradex.com>
+
+## Contributing
+
+Send pull requests on GitHub against the branch of the Yocto release they target
+(`wrynose`). Follow the OpenEmbedded conventions:
+
+- One logical change per commit, subject `<recipe or area>: <change>` (for
+  example `arduino-router: upgrade to 0.11.0`), body explaining why.
+- Every commit carries a `Signed-off-by:` line (Developer's Certificate of
+  Origin, as in OpenEmbedded and the Linux kernel).
+- Patches carry an `Upstream-Status:` tag.
+- Builds with no new warnings, and `yocto-check-layer` keeps passing.
+
+Bug reports and questions: GitHub issues.
+
+## Security
+
+Do not report vulnerabilities in public issues: see [SECURITY.md](SECURITY.md).
+
+## License
+
+The layer's own files (recipes, classes, configuration, scripts) are under the
+MIT license, see [COPYING.MIT](COPYING.MIT). The software the recipes build is
+under its own licenses, as declared in each recipe's `LICENSE`.
