@@ -1,6 +1,11 @@
 # Backported from meta-openembedded master (ca3cf5f, 2026-10-01): wrynose only
 # has adbd 5.1.1, which lacks the shell v2 protocol App Lab needs. Drop this
 # copy once the distribution moves to a meta-openembedded release with it.
+#
+# Not selected by default, so that adding the layer does not change
+# meta-openembedded's android-tools: set
+# PREFERRED_VERSION_android-tools = "35.0.2" where App Lab is used.
+DEFAULT_PREFERENCE = "-1"
 
 DESCRIPTION = "Various utilities from Android"
 SECTION = "console/utils"

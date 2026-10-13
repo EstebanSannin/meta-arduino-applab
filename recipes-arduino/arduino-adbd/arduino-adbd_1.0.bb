@@ -36,3 +36,9 @@ do_install() {
 FILES:${PN} += "${systemd_system_unitdir}"
 
 RDEPENDS:${PN} += "android-tools-adbd (>= 35) android-tools-conf-configfs"
+
+# Needs the layer's adbd 35 (shell v2), which is only used when selected
+python () {
+    if not (d.getVar('PREFERRED_VERSION_android-tools') or '').startswith('35'):
+        raise bb.parse.SkipRecipe('needs PREFERRED_VERSION_android-tools = "35.0.2"')
+}

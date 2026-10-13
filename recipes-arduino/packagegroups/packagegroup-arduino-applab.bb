@@ -3,6 +3,9 @@ LICENSE = "MIT"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
+# The Arduino tools are prebuilt for or only built on aarch64
+COMPATIBLE_HOST = "aarch64.*-linux"
+
 inherit packagegroup
 
 # Who provides the App Lab user (UID 1000). Distributions that already have a

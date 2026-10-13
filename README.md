@@ -44,7 +44,11 @@ layer only adds the App Lab software. It is enabled per machine with
 
 ```
 IMAGE_INSTALL:append = " packagegroup-arduino-applab"
+PREFERRED_VERSION_android-tools = "35.0.2"
 ```
+
+The layer's `android-tools` is not selected by default (adding the layer
+changes nothing on its own); App Lab's USB setup (`arduino-adbd`) needs it.
 
 The image needs Docker, systemd, sudo and avahi. App Lab expects the user at
 UID 1000; if your distribution already has one, set
