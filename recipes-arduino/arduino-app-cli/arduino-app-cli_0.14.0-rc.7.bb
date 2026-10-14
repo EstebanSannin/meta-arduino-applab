@@ -3,8 +3,8 @@ HOMEPAGE = "https://github.com/arduino/arduino-app-cli"
 LICENSE = "GPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://usr/share/doc/arduino-app-cli/copyright;md5=8d4203f664eb004aedb2aa71c0451eea"
 
-UPSTREAM_VERSION = "0.14.0-rc.6"
-PV = "0.14.0~rc.6"
+UPSTREAM_VERSION = "0.14.0-rc.7"
+PV = "0.14.0~rc.7"
 
 # Arduino's release package: static Go binary, brick assets and examples.
 SRC_URI = " \
@@ -22,7 +22,7 @@ SRC_URI = " \
     file://arduino-app-cli.tmpfiles \
     file://ssh.service \
 "
-SRC_URI[sha256sum] = "47c59229e9929afedf9397cd11634cd0410dcec25463de200438b88c91ed1dd5"
+SRC_URI[sha256sum] = "ce276f25d6eeca272684a59e729219aa7bf1ee210a0bca119daf11f9184221f9"
 
 COMPATIBLE_HOST = "aarch64.*-linux"
 
